@@ -1,3 +1,5 @@
+final String documentTable = 'document';
+
 class Document {
   int? id;
   String name;
@@ -12,6 +14,7 @@ class Document {
 
   Map<String, dynamic> toMap() {
     return {
+      'id': id,
       'name': name,
       'path': path,
       'size': size,
@@ -20,6 +23,7 @@ class Document {
 
   factory Document.fromMap(Map<String, dynamic> map) {
     return Document(
+      id: map['id'],
       name: map['name'],
       path: map['path'],
       size: map['size'],
@@ -27,5 +31,5 @@ class Document {
   }
 
   @override
-  String toString() => 'Document(name: $name, path: $path, size: $size)';
+  String toString() => 'Document(id: $id, name: $name, path: $path, size: $size)';
 }

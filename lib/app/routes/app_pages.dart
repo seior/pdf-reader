@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import 'package:pdfreader/app/modules/detail_document/bindings/detail_document_binding.dart';
+import 'package:pdfreader/app/modules/detail_document/views/detail_document_view.dart';
 import 'package:pdfreader/app/modules/home/bindings/home_binding.dart';
 import 'package:pdfreader/app/modules/home/views/home_view.dart';
 import 'package:pdfreader/app/modules/read_document/bindings/read_document_binding.dart';
@@ -23,6 +25,11 @@ class AppPages {
       page: () => ReadDocumentView(),
       binding: ReadDocumentBinding(),
       transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: _Paths.DETAIL_DOCUMENT,
+      page: () => DetailDocumentView(),
+      binding: DetailDocumentBinding(),
     ),
   ];
 }

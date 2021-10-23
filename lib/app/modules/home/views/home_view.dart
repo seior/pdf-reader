@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-
+import 'package:pdfreader/app/routes/app_pages.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -53,25 +53,28 @@ class HomeView extends GetView<HomeController> {
                             ),
                           )
                           .toList(),
-                      onChanged: (value) {
+                      onChanged: (value) async {
                         switch (value) {
                           case 'Open':
-                            controller.readDocumentFromList(index);
+                            controller.readDocumentFromList(controller.documents[index].id!);
                             break;
                           case 'Delete':
-                            controller.deleteFromList(context, index);
+                            controller.deleteFromList(context, controller.documents[index].id!);
                             break;
                           case 'Details':
+                            print(controller.documents[index].size);
+                            Get.toNamed(Routes.DETAIL_DOCUMENT, arguments: controller.documents[index]);
                             break;
                         }
                       },
                     ),
-                    onTap: () => controller.readDocumentFromList(index),
+                    onTap: () => controller.readDocumentFromList(controller.documents[index].id!),
                   ),
                 ),
               ),
       ),
       floatingActionButton: FloatingActionButton(
+        // onPressed: () => controller.readDocumentFromLocal(),
         onPressed: () => controller.readDocumentFromLocal(),
         child: Icon(
           Icons.folder,

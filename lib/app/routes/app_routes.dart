@@ -6,9 +6,11 @@ abstract class Routes {
 
   static const HOME = _Paths.HOME;
   static const READ_DOCUMENT = _Paths.READ_DOCUMENT;
+  static const DETAIL_DOCUMENT = _Paths.DETAIL_DOCUMENT;
 }
 
 abstract class _Paths {
   static const HOME = '/home';
   static const READ_DOCUMENT = '/read-document';
+  static const DETAIL_DOCUMENT = '/detail-document';
 }
